@@ -397,3 +397,84 @@ window.onready(
   </script>
 ```
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            position: absolute;
+            z-index: 1;
+            left: 200px;
+            top: 200px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(#fff 0%, yellow 100%);
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+	(function () {
+
+		let oWrap = document.getElementById("wrap"),
+			oL = oWrap.offsetLeft,
+			oT = oWrap.offsetTop;
+
+		let x = 8,
+			y = 10;
+
+		//获取浏览器的可视区的宽高，然后返回s更新事件
+		let maxLeft, maxTop;
+		window.onresize = (function s() {
+			maxLeft = window.innerWidth - oWrap.offsetWidth;
+			maxTop = window.innerHeight - oWrap.offsetHeight;
+			return s;
+		})();
+
+		(function pika() {
+			oL += x;
+			oT += y;
+
+			//判断边界情况，然后反弹，方向取反
+			if (oL >= maxLeft) {
+				oL = maxLeft;
+				x = -x;
+			}
+			if (oL <= 0) {
+				oL = 0;
+				x = -x;
+			}
+
+
+			if (oT >= maxTop) {
+				oT = maxTop;
+				y = -y
+			}
+
+			if (oT <= 0) {
+				oT = 0;
+				y = -y;
+			}
+
+			oWrap.style.left = oL + 'px';
+			oWrap.style.top = oT + 'px';
+
+			requestAnimationFrame(pika);
+		})();
+
+	})();
+</script>
+</body>
+</html>
+
