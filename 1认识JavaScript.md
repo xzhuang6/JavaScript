@@ -113,7 +113,7 @@ alert('这是写在外部.js文件中的JS代码！')
 
 ```html
 <script>
-    console.log('应用技术学院')
+    console.log('hello js'')
 </script>
 ```
 
