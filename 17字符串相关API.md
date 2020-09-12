@@ -215,9 +215,9 @@ alert( str.substr(-4, 2) ); // 'gi'，从第 4 位获取 2 个字符
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <meta name="keywords" content="关键词">
-  <meta name="description" content="描述">
-  <meta name="author" content="潭州教育-阿飞老师">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
   <style>
     body{font-family: "Microsoft YaHei",serif;}
     body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
